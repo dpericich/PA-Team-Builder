@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
 import './App.css';
+import TeamContainer from './components/TeamContainer';
+import Header from './components/Header';
+
+// How do I manage state? 
+// Each TeamSlot could control their own state for the first iteration
+// I am not concerned with looking at types yet
+// In the future, I could have the app manage a state with callbacks for the TeamSlots
+// These callbacks can be called during useEffect where the Pokemon state changes to check for new Pokemon
 
 function App() {
+  const AppContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  `
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <AppContainer>
+        <TeamContainer />
+      </AppContainer>
     </div>
-  );
+  )
 }
 
 export default App;
